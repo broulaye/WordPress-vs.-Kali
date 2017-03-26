@@ -6,33 +6,33 @@ Time spent: 8 hours spent in total
 
 ## Pentesting Report
 
-1. Stored Cross-Site Scripting (XSS)
-  - [x] Summary:
-    - Vulnerability types: XSS
-    - Tested in version: WordPress 4.2.2
-    - Fixed in version: 4.2.11
-  - [x] GIF Walkthrough: http://i.imgur.com/KmUzh1M.png
-  - [x] Steps to recreate: Download a theme file and modify the name so it contains some JavaScript code then zip the theme file under the name theme.zip and upload it to WordPress
-  - [x] Affected source code:
-    - https://github.com/WordPress/WordPress/commit/ce7fb2934dd111e6353784852de8aea2a938b359
-1. User Enumeration
-  - [x] Summary: 
-    - Vulnerability types: User Enumeration
-    - Tested in version: WordPress 4.2.2
-    - Fixed in version: WordPress 4.2.11
-  - [x] GIF Walkthrough: http://i.imgur.com/DqK4F63.png
-  - [x] Steps to recreate: -	Attacker can get the list of users, by just entering various user name. enter a random user name, error message will tell you if the username is valid or not.
-  - [x] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
 1. Authenticated Stored Cross-Site Scripting (XSS)
   - [x] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2.2
     - Fixed in version: 4.2.3
-  - [x] GIF Walkthrough: http://i.imgur.com/959oNEl.png
+  - [x] GIF Walkthrough: <img src='http://i.imgur.com/MiScZgQ.gif' title='Video Walkthrough' width='' alt='Vulnerability 1' />
   - [x] Steps to recreate: -	The following code “<a href="[caption code=">]</a><a title=" onmouseover=alert(document.cookie)">link</a>” passed in as a post can allow a user to run JavaScript code on WordPress.
   - [x] Affected source code:
     - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
+2. Authenticated Stored Cross-Site Scripting (XSS) in YouTube URL Embeds
+  - [x] Summary: 
+    - Vulnerability types: XSS
+    - Tested in version: WordPress 4.2.2
+    - Fixed in version: WordPress 4.2.3
+  - [x] GIF Walkthrough: <img src='http://i.imgur.com/nwT2XZe.gif' title='Video Walkthrough' width='' alt='Vulnerability 2' />
+  - [x] Steps to recreate: -	Embed the following "[embed src='https://youtube.com/embed/1234\x3csvg onload=alert(1)\x3e']  [/embed]" into a post
+  - [x] Affected source code:
+    - [Link 1](https://github.com/WordPress/WordPress/commit/419c8d97ce8df7d5004ee0b566bc5e095f0a6ca8)
+3. Authenticated Cross-Site Scripting (XSS) via Media File Metadata
+  - [x] Summary:
+    - Vulnerability types: XSS
+    - Tested in version: WordPress 4.2.2
+    - Fixed in version: 4.2.13
+  - [x] GIF Walkthrough: <img src='http://i.imgur.com/Vtj01cD.gif' title='Video Walkthrough' width='' alt='Vulnerability 3' />
+  - [x] Steps to recreate: Create an MP3 file with javascript inserted in the meta information, upload MP3 file to the Media Library and and insert an Audio Playlist in a Post containing this MP3
+  - [x] Affected source code:
+    - https://github.com/WordPress/WordPress/commit/28f838ca3ee205b6f39cd2bf23eb4e5f52796bd7
 1. (Optional) Vulnerability Name or ID
   - [ ] Summary: 
     - Vulnerability types: 
@@ -69,7 +69,7 @@ Describe any challenges encountered while doing the work
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2017 Broulaye Doumbia
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
